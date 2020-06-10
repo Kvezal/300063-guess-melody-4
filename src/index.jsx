@@ -7,8 +7,8 @@ import App from "@components/app";
 const root = document.querySelector(`#root`);
 
 ReactDOM.render(
-  <App
-    errorLimit={3}
-  />,
-  root
+    <App
+      errorLimit={3}
+    />,
+    root
 );
