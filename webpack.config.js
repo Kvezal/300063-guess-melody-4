@@ -3,9 +3,10 @@
 const path = require(`path`);
 
 const publicDir = path.resolve(__dirname, `public`);
+console.log(publicDir);
 
 module.exports = {
-  entry: `./src/index.js`,
+  entry: `./src/index.jsx`,
   output: {
     filename: `bundle.js`,
     path: publicDir,
@@ -26,6 +27,12 @@ module.exports = {
         },
       }
     ],
+  },
+  resolve: {
+    alias: {
+      '@components': path.resolve(__dirname, `src/components/`),
+    },
+    extensions: [`.js`, `.jsx`],
   },
   devtool: `source-map`,
 };
