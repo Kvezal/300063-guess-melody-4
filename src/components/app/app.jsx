@@ -1,7 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import WelcomePage from "@components/welcome-screen";
+import Models from "@models";
 
 
 const App = (props) => {
@@ -12,8 +12,6 @@ const App = (props) => {
   />;
 };
 
-App.propTypes = {
-  errorLimit: PropTypes.number.isRequired,
-};
+App.propTypes = Models.welcomePageModel;
 
 export default App;

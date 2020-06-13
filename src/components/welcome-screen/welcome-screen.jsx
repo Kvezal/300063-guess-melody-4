@@ -1,5 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
+
+import Models from "@models";
 
 
 const WelcomePage = (props) => {
@@ -18,8 +19,6 @@ const WelcomePage = (props) => {
   </section>;
 };
 
-WelcomePage.propTypes = {
-  errorLimit: PropTypes.number.isRequired,
-};
+WelcomePage.propTypes = Models.welcomePageModel;
 
 export default WelcomePage;
