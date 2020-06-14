@@ -1,6 +1,5 @@
 import React from "react";
-
-import Models from "@models";
+import PropTypes from "prop-types";
 
 
 const WelcomeScreen = (props) => {
@@ -24,6 +23,9 @@ const WelcomeScreen = (props) => {
   </section>;
 };
 
-WelcomeScreen.propTypes = Models.welcomeScreenModel;
+WelcomeScreen.propTypes = {
+  errorLimit: PropTypes.number.isRequired,
+  onWelcomeButtonClick: PropTypes.func.isRequired,
+};
 
 export default WelcomeScreen;
