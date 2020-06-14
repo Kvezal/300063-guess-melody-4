@@ -12,7 +12,7 @@ Enzyme.configure({
 describe(`WelcomeScreenComponent`, () => {
   const errorLimit = 5;
 
-  it(``, () => {
+  it(`welcome button should be pressed`, () => {
     const onWelcomeButtonClick = jest.fn();
 
     const welcomeScreen = shallow(
