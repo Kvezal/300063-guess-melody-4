@@ -5,10 +5,11 @@ import Models from "@models";
 
 
 const App = (props) => {
-  const {errorLimit} = props;
+  const {errorLimit, onWelcomeButtonClick} = props;
 
   return <WelcomeScreen
     errorLimit={errorLimit}
+    onWelcomeButtonClick={onWelcomeButtonClick}
   />;
 };
 
