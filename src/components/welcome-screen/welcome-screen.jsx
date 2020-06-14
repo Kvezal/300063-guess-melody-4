@@ -3,7 +3,7 @@ import React from "react";
 import Models from "@models";
 
 
-const WelcomePage = (props) => {
+const WelcomeScreen = (props) => {
   const {errorLimit} = props;
 
   return <section className="welcome">
@@ -19,6 +19,6 @@ const WelcomePage = (props) => {
   </section>;
 };
 
-WelcomePage.propTypes = Models.welcomePageModel;
+WelcomeScreen.propTypes = Models.welcomeScreenModel;
 
-export default WelcomePage;
+export default WelcomeScreen;

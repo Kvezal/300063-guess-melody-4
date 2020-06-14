@@ -1,6 +1,6 @@
-import welcomePageModel from "./welcome-page.model";
+import welcomeScreenModel from "./welcome-screen.model";
 
 
 export default {
-  welcomePageModel,
+  welcomeScreenModel,
 };

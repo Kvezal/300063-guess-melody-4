@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
 
-const welcomePageModel = {
+const welcomeScreenModel = {
   errorLimit: PropTypes.number.isRequired,
 };
 
-export default welcomePageModel;
+export default welcomeScreenModel;

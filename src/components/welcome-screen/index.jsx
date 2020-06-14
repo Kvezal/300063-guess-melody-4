@@ -1,4 +1,4 @@
-import WelcomePage from "./welcome-screen";
+import WelcomeScreen from "./welcome-screen";
 
 
-export default WelcomePage;
+export default WelcomeScreen;
