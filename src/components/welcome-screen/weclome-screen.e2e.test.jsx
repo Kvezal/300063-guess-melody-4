@@ -22,7 +22,7 @@ describe(`WelcomeScreenComponent`, () => {
         />
     );
     const welcomeButton = welcomeScreen.find(`button.welcome__button`);
-    welcomeButton.props().onClick();
-    expect(onWelcomeButtonClick.mock.calls.length).toBe(1);
+    welcomeButton.simulate(`click`);
+    expect(onWelcomeButtonClick).toHaveBeenCalledTimes(welcomeButton.length);
   });
 });
