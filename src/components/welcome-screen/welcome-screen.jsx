@@ -1,8 +1,9 @@
 import React from "react";
 
+import Models from "@models";
+
 
 const WelcomePage = (props) => {
-  // eslint-disable-next-line react/prop-types
   const {errorLimit} = props;
 
   return <section className="welcome">
@@ -17,5 +18,7 @@ const WelcomePage = (props) => {
     <p className="welcome__text">Удачи!</p>
   </section>;
 };
+
+WelcomePage.propTypes = Models.welcomePageModel;
 
 export default WelcomePage;
