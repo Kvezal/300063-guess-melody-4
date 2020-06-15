@@ -1,17 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import WelcomePage from "@components/welcome-screen";
-import Models from "@models";
+import WelcomeScreen from "@components/welcome-screen";
 
 
 const App = (props) => {
   const {errorLimit} = props;
 
-  return <WelcomePage
+  return <WelcomeScreen
     errorLimit={errorLimit}
+    onWelcomeButtonClick={() => {}}
   />;
 };
 
-App.propTypes = Models.welcomePageModel;
+App.propTypes = {
+  errorLimit: PropTypes.number.isRequired,
+};
 
 export default App;
