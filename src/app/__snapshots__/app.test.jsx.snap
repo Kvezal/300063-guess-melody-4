@@ -15,8 +15,9 @@ exports[`App should render with errorLimit equals 4 1`] = `
     />
   </div>
   <button
-    className="welcome__button"
+    className="play-button play-button--big welcome__button"
     onClick={[Function]}
+    type="button"
   >
     <span
       className="visually-hidden"

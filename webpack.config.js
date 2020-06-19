@@ -16,6 +16,7 @@ module.exports = {
     open: true,
     inline: true,
     port: 1337,
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -30,7 +31,9 @@ module.exports = {
   },
   resolve: {
     alias: {
+      '@app': path.resolve(__dirname, `src/app/`),
       '@components': path.resolve(__dirname, `src/components/`),
+      '@mocks': path.resolve(__dirname, `src/mocks/`),
     },
     extensions: [`.js`, `.jsx`],
   },
