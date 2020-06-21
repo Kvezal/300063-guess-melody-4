@@ -13,14 +13,16 @@ const Result = (props) => {
         ? <Fragment>
           <h2 className="result__title">Вы настоящий меломан!</h2>
           <p className="result__total">Вы ответили правильно на {rightAnswers} вопросов и совершили {mistakes} ошибки</p>
+          <button className="replay" type="button">Сыграть ещё раз</button>
         </Fragment>
         : <Fragment>
           <h2 className="result__title">Какая жалость!</h2>
           <p className="result__total result__total--fail">У вас закончились все попытки. Ничего, повезёт в следующий раз!</p>
+          <button className="replay" type="button">Попробовать ещё раз</button>
         </Fragment>
     }
 
-    <button className="replay" type="button">Попробовать ещё раз</button>
+
   </section>;
 };
 

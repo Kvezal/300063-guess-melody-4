@@ -65,7 +65,7 @@ exports[`Result should render success component 1`] = `
     className="replay"
     type="button"
   >
-    Попробовать ещё раз
+    Сыграть ещё раз
   </button>
 </section>
 `;
