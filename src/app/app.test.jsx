@@ -13,6 +13,7 @@ describe(`App`, () => {
           <App
             errorLimit={errorLimit}
             questions={[]}
+            screen="welcome"
           />
       )
       .toJSON();

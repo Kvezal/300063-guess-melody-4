@@ -11,7 +11,7 @@ Enzyme.configure({
 });
 
 describe(`PlayButtonComponent`, () => {
-  test(`should renderer component`, () => {
+  test(`should render component`, () => {
     const tree = renderer
       .create(
           <PlayButton
@@ -82,17 +82,17 @@ describe(`PlayButtonComponent`, () => {
     expect(button).toHaveLength(1);
   });
 
-  test(`should have content text`, () => {
-    const playButtonContent = `content`;
+  test(`should have content child`, () => {
+    const text = `content`;
     const playButton = shallow(
         <PlayButton
           size="small"
           onButtonClick={() => {}}
         >
-          {playButtonContent}
+          <span>{text}</span>;
         </PlayButton>
     );
-    const button = playButton.find(`button.play-button`);
-    expect(button.text()).toBe(playButtonContent);
+    const spanButton = playButton.find(`button.play-button span`);
+    expect(spanButton.text()).toBe(text);
   });
 });

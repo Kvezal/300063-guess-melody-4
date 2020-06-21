@@ -17,6 +17,10 @@ const PlayButton = (props) => {
   </button>;
 };
 
+PlayButton.defaultProps = {
+  size: `small`,
+};
+
 PlayButton.propTypes = {
   className: PropTypes.string,
   size: PropTypes.oneOf(PLAY_BUTTON_SIZES).isRequired,
