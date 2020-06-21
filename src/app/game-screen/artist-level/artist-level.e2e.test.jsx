@@ -1,5 +1,5 @@
 import React from "react";
-import Enzyme, {mount} from "enzyme";
+import Enzyme, {mount, shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
 import ArtistLevel from "./artist-level";
@@ -24,6 +24,7 @@ describe(`ArtistLevelComponent`, () => {
     const tree = mount(
         <ArtistLevel
           question={question}
+          onAnswer={() => {}}
         />
     );
     const artistLevel = tree.find(`form.game__artist`);
@@ -34,9 +35,49 @@ describe(`ArtistLevelComponent`, () => {
     const tree = mount(
         <ArtistLevel
           question={question}
+          onAnswer={() => {}}
         />
     );
     const artistLevel = tree.find(`.artist`);
     expect(artistLevel).toHaveLength(question.answers.length);
+  });
+
+  test(`should call answer`, () => {
+    const handleAnswerChangeMock = jest.fn();
+    const genreLevel = mount(
+        <ArtistLevel
+          question={question}
+          onAnswer={handleAnswerChangeMock}
+        />
+    );
+    const artistInput = genreLevel.find(`input.artist__input`);
+    artistInput.at(0).simulate(`change`);
+    expect(handleAnswerChangeMock).toBeCalled();
+  });
+
+  test(`onAnswer should return true result if answer is corrected`, () => {
+    const handleAnswerChangeMock = jest.fn();
+    const genreLevel = shallow(
+        <ArtistLevel
+          question={question}
+          onAnswer={handleAnswerChangeMock}
+        />
+    );
+    const artistInput = genreLevel.find(`input.artist__input`);
+    artistInput.at(2).simulate(`change`, {target: {value: `Jim Beam`}});
+    expect(handleAnswerChangeMock).toHaveBeenCalledWith(true);
+  });
+
+  test(`onAnswer should return false result if answer is wrong`, () => {
+    const handleAnswerChangeMock = jest.fn();
+    const genreLevel = shallow(
+        <ArtistLevel
+          question={question}
+          onAnswer={handleAnswerChangeMock}
+        />
+    );
+    const artistInput = genreLevel.find(`input.artist__input`);
+    artistInput.at(0).simulate(`change`, {target: {value: `John Snow`}});
+    expect(handleAnswerChangeMock).toHaveBeenCalledWith(false);
   });
 });
