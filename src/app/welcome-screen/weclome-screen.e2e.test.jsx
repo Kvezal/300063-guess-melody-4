@@ -1,6 +1,7 @@
 import React from "react";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
+import {MemoryRouter} from "react-router-dom";
 
 import WelcomeScreen from "./welcome-screen";
 
@@ -16,12 +17,14 @@ describe(`WelcomeScreenComponent`, () => {
     const onWelcomeButtonClick = jest.fn();
 
     const welcomeScreen = mount(
-        <WelcomeScreen
-          errorLimit={errorLimit}
-          onWelcomeButtonClick={onWelcomeButtonClick}
-        />
+        <MemoryRouter>
+          <WelcomeScreen
+            errorLimit={errorLimit}
+            onWelcomeButtonClick={onWelcomeButtonClick}
+          />
+        </MemoryRouter>
     );
-    const welcomeButton = welcomeScreen.find(`button.welcome__button`);
+    const welcomeButton = welcomeScreen.find(`.welcome__button button`);
     welcomeButton.simulate(`click`);
     expect(onWelcomeButtonClick).toHaveBeenCalledTimes(welcomeButton.length);
   });

@@ -1,5 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 import WelcomeScreen from "@app/welcome-screen";
 import GameScreen from "@app/game-screen";
@@ -19,19 +20,15 @@ class App extends PureComponent {
   _initScreen() {
     this._chooseWelcomeScreen = this._chooseWelcomeScreen.bind(this);
     this._chooseGameScreen = this._chooseGameScreen.bind(this);
-    this._screenMap = new Map([
-      [Enums.ScreenTypes.WELCOME, this._chooseWelcomeScreen],
-      [Enums.ScreenTypes.GAME, this._chooseGameScreen]
-    ]);
   }
 
   render() {
-    return this._chooseScreen();
-  }
-
-  _chooseScreen() {
-    const {screen} = this.state;
-    return this._screenMap.get(screen)();
+    return <BrowserRouter>
+      <Switch>
+        <Route exact path="/">{this._chooseWelcomeScreen()}</Route>
+        <Route exact path="/game">{this._chooseGameScreen()}</Route>
+      </Switch>
+    </BrowserRouter>;
   }
 
   _chooseWelcomeScreen() {

@@ -1,5 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 
 import PlayButton from "@components/play-button";
 
@@ -14,13 +15,14 @@ class WelcomeScreen extends PureComponent {
 
     return <section className="welcome">
       <div className="welcome__logo"><img src="img/melody-logo.png" alt="Угадай мелодию" width="186" height="83" /></div>
-      <PlayButton
-        className="welcome__button"
-        size="big"
-        onButtonClick={onWelcomeButtonClick}
-      >
-        <span className="visually-hidden">Начать игру</span>
-      </PlayButton>
+      <Link className="welcome__button" to="/game">
+        <PlayButton
+          size="big"
+          onButtonClick={onWelcomeButtonClick}
+        >
+          <span className="visually-hidden">Начать игру</span>
+        </PlayButton>
+      </Link>
       <h2 className="welcome__rules-title">Правила игры</h2>
       <p className="welcome__text">Правила просты:</p>
       <ul className="welcome__rules-list">

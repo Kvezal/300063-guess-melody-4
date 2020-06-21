@@ -14,17 +14,23 @@ exports[`WelcomeScreen should render with errorLimit equals 5 1`] = `
       width="186"
     />
   </div>
-  <button
-    className="play-button play-button--big welcome__button"
+  <a
+    className="welcome__button"
+    href="/game"
     onClick={[Function]}
-    type="button"
   >
-    <span
-      className="visually-hidden"
+    <button
+      className="play-button play-button--big "
+      onClick={[Function]}
+      type="button"
     >
-      Начать игру
-    </span>
-  </button>
+      <span
+        className="visually-hidden"
+      >
+        Начать игру
+      </span>
+    </button>
+  </a>
   <h2
     className="welcome__rules-title"
   >

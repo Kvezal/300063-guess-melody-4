@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Genre should render component 1`] = `
+<section
+  className="game__screen"
+>
+  <h2
+    className="game__title"
+  >
+    Выберите инди-рок треки
+  </h2>
+  <form
+    className="game__tracks"
+    onSubmit={[Function]}
+  >
+    <div
+      className="track"
+    >
+      <button
+        className="play-button play-button--small "
+        onClick={[Function]}
+        type="button"
+      />
+      <div
+        className="track__status"
+      >
+        <audio />
+      </div>
+      <div
+        className="game__answer"
+      >
+        <input
+          className="game__input visually-hidden"
+          id="src/1"
+          name="answer"
+          onChange={[Function]}
+          type="checkbox"
+          value="rock"
+        />
+        <label
+          className="game__check"
+          htmlFor="src/1"
+        >
+          Отметить
+        </label>
+      </div>
+    </div>
+    <div
+      className="track"
+    >
+      <button
+        className="play-button play-button--small "
+        onClick={[Function]}
+        type="button"
+      />
+      <div
+        className="track__status"
+      >
+        <audio />
+      </div>
+      <div
+        className="game__answer"
+      >
+        <input
+          className="game__input visually-hidden"
+          id="src/2"
+          name="answer"
+          onChange={[Function]}
+          type="checkbox"
+          value="blues"
+        />
+        <label
+          className="game__check"
+          htmlFor="src/2"
+        >
+          Отметить
+        </label>
+      </div>
+    </div>
+    <div
+      className="track"
+    >
+      <button
+        className="play-button play-button--small "
+        onClick={[Function]}
+        type="button"
+      />
+      <div
+        className="track__status"
+      >
+        <audio />
+      </div>
+      <div
+        className="game__answer"
+      >
+        <input
+          className="game__input visually-hidden"
+          id="src/3"
+          name="answer"
+          onChange={[Function]}
+          type="checkbox"
+          value="jazz"
+        />
+        <label
+          className="game__check"
+          htmlFor="src/3"
+        >
+          Отметить
+        </label>
+      </div>
+    </div>
+    <div
+      className="track"
+    >
+      <button
+        className="play-button play-button--small "
+        onClick={[Function]}
+        type="button"
+      />
+      <div
+        className="track__status"
+      >
+        <audio />
+      </div>
+      <div
+        className="game__answer"
+      >
+        <input
+          className="game__input visually-hidden"
+          id="src/4"
+          name="answer"
+          onChange={[Function]}
+          type="checkbox"
+          value="rock"
+        />
+        <label
+          className="game__check"
+          htmlFor="src/4"
+        >
+          Отметить
+        </label>
+      </div>
+    </div>
+    <button
+      className="game__submit button"
+      type="submit"
+    >
+      Ответить
+    </button>
+  </form>
+</section>
+`;
