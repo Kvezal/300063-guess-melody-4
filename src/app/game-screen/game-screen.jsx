@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 import Types from "@types";
 import Enums from "@enums/index";
-import MistakeList from "@components/mistakes";
+import MistakeList from "@components/mistake-list";
 import GenreLevel from "@app/game-screen/genre-level";
 import ArtistLevel from "@app/game-screen/artist-level";
 import Result from "@app/game-screen/result";
