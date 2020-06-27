@@ -8,6 +8,10 @@ import MistakeList from "@components/mistake-list";
 import GenreLevel from "@app/game-screen/genre-level";
 import ArtistLevel from "@app/game-screen/artist-level";
 import Result from "@app/game-screen/result";
+import withActivePlayer from "@hocs/with-active-player";
+
+const GenreLevelWrapper = withActivePlayer(GenreLevel);
+const ArtistLevelWrapper = withActivePlayer(ArtistLevel);
 
 
 class GameScreen extends PureComponent {
@@ -70,14 +74,14 @@ class GameScreen extends PureComponent {
   }
 
   _chooseArtistLevel(question) {
-    return <ArtistLevel
+    return <ArtistLevelWrapper
       question={question}
       onAnswer={this._handleAnswerClick}
     />;
   }
 
   _chooseGenreLevel(question) {
-    return <GenreLevel
+    return <GenreLevelWrapper
       question={question}
       onAnswer={this._handleAnswerClick}
     />;

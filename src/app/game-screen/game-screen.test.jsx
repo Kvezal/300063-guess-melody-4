@@ -23,7 +23,9 @@ describe(`GameScreen`, () => {
               questions={questions}
               errorLimit={3}
             />
-          </MemoryRouter>
+          </MemoryRouter>, {
+            createNodeMock: () => ({}),
+          }
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -47,7 +49,9 @@ describe(`GameScreen`, () => {
               questions={questions}
               errorLimit={3}
             />
-          </MemoryRouter>
+          </MemoryRouter>, {
+            createNodeMock: () => ({}),
+          }
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

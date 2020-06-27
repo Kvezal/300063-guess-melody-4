@@ -36,6 +36,7 @@ module.exports = {
       '@mocks': path.resolve(__dirname, `src/mocks/`),
       '@types': path.resolve(__dirname, `src/types`),
       '@enums': path.resolve(__dirname, `src/enums`),
+      '@hocs': path.resolve(__dirname, `src/hocs`),
     },
     extensions: [`.js`, `.jsx`],
   },

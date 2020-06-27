@@ -34,7 +34,8 @@
       "@app(.*)$": "<rootDir>/src/app/$1",
       "@components(.*)$": "<rootDir>/src/components/$1",
       "@types(.*)$": "<rootDir>/src/types/$1",
-      "@enums(.*)$": "<rootDir>/src/enums/$1"
+      "@enums(.*)$": "<rootDir>/src/enums/$1",
+      "@hocs(.*)$": "<rootDir>/src/hocs/$1"
     }
   },
   "husky": {

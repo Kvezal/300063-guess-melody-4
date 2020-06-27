@@ -54,7 +54,8 @@ exports[`GameScreen should render component 1`] = `
         className="track"
       >
         <button
-          className="track__button track__button--play"
+          className="track__button track__button--pause"
+          onClick={[Function]}
           type="button"
         />
         <div
@@ -196,7 +197,7 @@ exports[`GameScreen should render component 2`] = `
         className="track"
       >
         <button
-          className="play-button play-button--small "
+          className="track__button track__button--pause"
           onClick={[Function]}
           type="button"
         />
@@ -210,7 +211,7 @@ exports[`GameScreen should render component 2`] = `
         >
           <input
             className="game__input visually-hidden"
-            id="src/1"
+            id="rock0"
             name="answer"
             onChange={[Function]}
             type="checkbox"
@@ -218,7 +219,7 @@ exports[`GameScreen should render component 2`] = `
           />
           <label
             className="game__check"
-            htmlFor="src/1"
+            htmlFor="rock0"
           >
             Отметить
           </label>
@@ -228,7 +229,7 @@ exports[`GameScreen should render component 2`] = `
         className="track"
       >
         <button
-          className="play-button play-button--small "
+          className="track__button track__button--play"
           onClick={[Function]}
           type="button"
         />
@@ -242,7 +243,7 @@ exports[`GameScreen should render component 2`] = `
         >
           <input
             className="game__input visually-hidden"
-            id="src/2"
+            id="blues1"
             name="answer"
             onChange={[Function]}
             type="checkbox"
@@ -250,7 +251,7 @@ exports[`GameScreen should render component 2`] = `
           />
           <label
             className="game__check"
-            htmlFor="src/2"
+            htmlFor="blues1"
           >
             Отметить
           </label>
@@ -260,7 +261,7 @@ exports[`GameScreen should render component 2`] = `
         className="track"
       >
         <button
-          className="play-button play-button--small "
+          className="track__button track__button--play"
           onClick={[Function]}
           type="button"
         />
@@ -274,7 +275,7 @@ exports[`GameScreen should render component 2`] = `
         >
           <input
             className="game__input visually-hidden"
-            id="src/3"
+            id="jazz2"
             name="answer"
             onChange={[Function]}
             type="checkbox"
@@ -282,7 +283,7 @@ exports[`GameScreen should render component 2`] = `
           />
           <label
             className="game__check"
-            htmlFor="src/3"
+            htmlFor="jazz2"
           >
             Отметить
           </label>
@@ -292,7 +293,7 @@ exports[`GameScreen should render component 2`] = `
         className="track"
       >
         <button
-          className="play-button play-button--small "
+          className="track__button track__button--play"
           onClick={[Function]}
           type="button"
         />
@@ -306,7 +307,7 @@ exports[`GameScreen should render component 2`] = `
         >
           <input
             className="game__input visually-hidden"
-            id="src/4"
+            id="rock3"
             name="answer"
             onChange={[Function]}
             type="checkbox"
@@ -314,7 +315,7 @@ exports[`GameScreen should render component 2`] = `
           />
           <label
             className="game__check"
-            htmlFor="src/4"
+            htmlFor="rock3"
           >
             Отметить
           </label>

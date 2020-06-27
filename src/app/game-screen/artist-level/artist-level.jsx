@@ -11,22 +11,19 @@ class ArtistLevel extends PureComponent {
   }
 
   render() {
-    const {question} = this.props;
+    const {question, renderPlayer} = this.props;
 
     return <section className="game__screen">
       <h2 className="game__title">Кто исполняет эту песню?</h2>
       <div className="game__track">
         <div className="track">
-          <button className="track__button track__button--play" type="button" />
-          <div className="track__status">
-            <audio />
-          </div>
+          {renderPlayer(question.song.src, 0)}
         </div>
       </div>
 
       <form className="game__artist">
-        {question.answers.map((answer) => {
-          return <div className="artist" key={answer.artist}>
+        {question.answers.map((answer, index) => {
+          return <div className="artist" key={index}>
             <input
               className="artist__input visually-hidden"
               type="radio"
@@ -55,6 +52,7 @@ class ArtistLevel extends PureComponent {
 ArtistLevel.propTypes = {
   question: PropTypes.shape(Types.artistQuestion).isRequired,
   onAnswer: PropTypes.func.isRequired,
+  renderPlayer: PropTypes.func.isRequired,
 };
 
 export default ArtistLevel;

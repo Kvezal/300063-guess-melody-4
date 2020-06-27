@@ -8,7 +8,11 @@ describe(`Result`, () => {
   test(`should render success component`, () => {
     const tree = render
       .create(
-          <Result type="success" rightAnswers={10} mistakes={0}/>
+          <Result
+            type="success"
+            rightAnswers={10}
+            mistakes={0}
+          />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -17,7 +21,11 @@ describe(`Result`, () => {
   test(`should render failed component`, () => {
     const tree = render
       .create(
-          <Result type="failed" rightAnswers={0} mistakes={0}/>
+          <Result
+            type="failed"
+            rightAnswers={0}
+            mistakes={0}
+          />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

@@ -16,22 +16,12 @@ exports[`Genre should render component 1`] = `
     <div
       className="track"
     >
-      <button
-        className="play-button play-button--small "
-        onClick={[Function]}
-        type="button"
-      />
-      <div
-        className="track__status"
-      >
-        <audio />
-      </div>
       <div
         className="game__answer"
       >
         <input
           className="game__input visually-hidden"
-          id="src/1"
+          id="rock0"
           name="answer"
           onChange={[Function]}
           type="checkbox"
@@ -39,7 +29,7 @@ exports[`Genre should render component 1`] = `
         />
         <label
           className="game__check"
-          htmlFor="src/1"
+          htmlFor="rock0"
         >
           Отметить
         </label>
@@ -48,22 +38,12 @@ exports[`Genre should render component 1`] = `
     <div
       className="track"
     >
-      <button
-        className="play-button play-button--small "
-        onClick={[Function]}
-        type="button"
-      />
-      <div
-        className="track__status"
-      >
-        <audio />
-      </div>
       <div
         className="game__answer"
       >
         <input
           className="game__input visually-hidden"
-          id="src/2"
+          id="blues1"
           name="answer"
           onChange={[Function]}
           type="checkbox"
@@ -71,7 +51,7 @@ exports[`Genre should render component 1`] = `
         />
         <label
           className="game__check"
-          htmlFor="src/2"
+          htmlFor="blues1"
         >
           Отметить
         </label>
@@ -80,22 +60,12 @@ exports[`Genre should render component 1`] = `
     <div
       className="track"
     >
-      <button
-        className="play-button play-button--small "
-        onClick={[Function]}
-        type="button"
-      />
-      <div
-        className="track__status"
-      >
-        <audio />
-      </div>
       <div
         className="game__answer"
       >
         <input
           className="game__input visually-hidden"
-          id="src/3"
+          id="jazz2"
           name="answer"
           onChange={[Function]}
           type="checkbox"
@@ -103,7 +73,7 @@ exports[`Genre should render component 1`] = `
         />
         <label
           className="game__check"
-          htmlFor="src/3"
+          htmlFor="jazz2"
         >
           Отметить
         </label>
@@ -112,22 +82,12 @@ exports[`Genre should render component 1`] = `
     <div
       className="track"
     >
-      <button
-        className="play-button play-button--small "
-        onClick={[Function]}
-        type="button"
-      />
-      <div
-        className="track__status"
-      >
-        <audio />
-      </div>
       <div
         className="game__answer"
       >
         <input
           className="game__input visually-hidden"
-          id="src/4"
+          id="rock3"
           name="answer"
           onChange={[Function]}
           type="checkbox"
@@ -135,7 +95,7 @@ exports[`Genre should render component 1`] = `
         />
         <label
           className="game__check"
-          htmlFor="src/4"
+          htmlFor="rock3"
         >
           Отметить
         </label>

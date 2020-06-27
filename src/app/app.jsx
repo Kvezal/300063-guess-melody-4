@@ -33,10 +33,7 @@ class App extends PureComponent {
 
   _chooseWelcomeScreen() {
     const {errorLimit} = this.props;
-    return <WelcomeScreen
-      errorLimit={errorLimit}
-      onWelcomeButtonClick={() => this._changeScreen(Enums.ScreenTypes.GAME)}
-    />;
+    return <WelcomeScreen errorLimit={errorLimit}/>;
   }
 
   _chooseGameScreen() {
@@ -45,10 +42,6 @@ class App extends PureComponent {
       errorLimit={errorLimit}
       questions={questions}
     />;
-  }
-
-  _changeScreen(screen) {
-    this.setState({screen});
   }
 }
 

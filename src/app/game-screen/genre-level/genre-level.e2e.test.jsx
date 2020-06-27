@@ -26,6 +26,7 @@ describe(`GenreLevelComponent`, () => {
         <GenreLevel
           question={question}
           onAnswer={() => {}}
+          renderPlayer={() => {}}
         />
     );
     const form = genreLevel.find(`form.game__tracks`);
@@ -37,6 +38,7 @@ describe(`GenreLevelComponent`, () => {
         <GenreLevel
           question={question}
           onAnswer={() => {}}
+          renderPlayer={() => {}}
         />
     );
     const tracks = genreLevel.find(`.track`);
@@ -48,6 +50,7 @@ describe(`GenreLevelComponent`, () => {
         <GenreLevel
           question={question}
           onAnswer={() => {}}
+          renderPlayer={() => {}}
         />
     );
     const answers = genreLevel.state().answers;
@@ -60,6 +63,7 @@ describe(`GenreLevelComponent`, () => {
         <GenreLevel
           question={question}
           onAnswer={handleAnswerSubmitMock}
+          renderPlayer={() => {}}
         />
     );
     const genreButton = genreLevel.find(`button.game__submit`);
@@ -72,6 +76,7 @@ describe(`GenreLevelComponent`, () => {
         <GenreLevel
           question={question}
           onAnswer={() => {}}
+          renderPlayer={() => {}}
         />
     );
     const checkButtons = genreLevel.find(`input.game__input`);
@@ -89,6 +94,7 @@ describe(`GenreLevelComponent`, () => {
         <GenreLevel
           question={question}
           onAnswer={handleAnswerSubmitMock}
+          renderPlayer={() => {}}
         />
     );
     const checkboxes = genreLevel.find(`input.game__input`);
@@ -106,6 +112,7 @@ describe(`GenreLevelComponent`, () => {
         <GenreLevel
           question={question}
           onAnswer={handleAnswerSubmitMock}
+          renderPlayer={() => {}}
         />
     );
     const checkboxes = genreLevel.find(`input.game__input`);

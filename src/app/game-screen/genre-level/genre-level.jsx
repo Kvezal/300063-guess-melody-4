@@ -2,8 +2,6 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 
 import Types from "@types";
-import PlayButton from "@components/play-button";
-import Player from "@components/player";
 
 
 class GenreLevel extends PureComponent {
@@ -17,24 +15,23 @@ class GenreLevel extends PureComponent {
     };
   }
   render() {
-    const {question} = this.props;
+    const {question, renderPlayer} = this.props;
     return <section className="game__screen">
       <h2 className="game__title">Выберите инди-рок треки</h2>
       <form className="game__tracks" onSubmit={this._handleAnswerSubmit}>
         {question.answers.map((answer, index) => {
-          return <div className="track" key={answer.src}>
-            <PlayButton onButtonClick={() => {}} />
-            <Player />
+          return <div className="track" key={index}>
+            {renderPlayer(answer.src, index)}
             <div className="game__answer">
               <input
                 className="game__input visually-hidden"
                 type="checkbox"
                 name="answer"
                 value={answer.genre}
-                id={answer.src}
+                id={`${answer.genre}${index}`}
                 onChange={(event) => this._handleAnswerChange(event, index)}
               />
-              <label className="game__check" htmlFor={answer.src}>Отметить</label>
+              <label className="game__check" htmlFor={`${answer.genre}${index}`}>Отметить</label>
             </div>
           </div>;
         })}
@@ -71,6 +68,7 @@ class GenreLevel extends PureComponent {
 GenreLevel.propTypes = {
   question: PropTypes.shape(Types.genreQuestion).isRequired,
   onAnswer: PropTypes.func.isRequired,
+  renderPlayer: PropTypes.func.isRequired,
 };
 
 export default GenreLevel;

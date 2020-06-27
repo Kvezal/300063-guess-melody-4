@@ -21,7 +21,11 @@ describe(`Genre`, () => {
     const tree = render
       .create(
           <MemoryRouter initialEntries={[`/game`]}>
-            <GenreLevel question={question} onAnswer={() => {}} />
+            <GenreLevel
+              question={question}
+              onAnswer={() => {}}
+              renderPlayer={() => {}}
+            />
           </MemoryRouter>
       )
       .toJSON();

@@ -15,14 +15,11 @@ exports[`App should render with errorLimit equals 4 1`] = `
     />
   </div>
   <a
-    className="welcome__button"
     href="/game"
     onClick={[Function]}
   >
     <button
-      className="play-button play-button--big "
-      onClick={[Function]}
-      type="button"
+      className="welcome__button"
     >
       <span
         className="visually-hidden"

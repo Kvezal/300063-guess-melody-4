@@ -18,7 +18,11 @@ describe(`ArtistLevel`, () => {
   test(`should render component`, () => {
     const tree = render
       .create(
-          <ArtistLevel question={question} onAnswer={() => {}}/>
+          <ArtistLevel
+            question={question}
+            onAnswer={() => {}}
+            renderPlayer={() => {}}
+          />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

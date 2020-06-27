@@ -25,6 +25,7 @@ describe(`ArtistLevelComponent`, () => {
         <ArtistLevel
           question={question}
           onAnswer={() => {}}
+          renderPlayer={() => {}}
         />
     );
     const artistLevel = tree.find(`form.game__artist`);
@@ -36,6 +37,7 @@ describe(`ArtistLevelComponent`, () => {
         <ArtistLevel
           question={question}
           onAnswer={() => {}}
+          renderPlayer={() => {}}
         />
     );
     const artistLevel = tree.find(`.artist`);
@@ -48,6 +50,7 @@ describe(`ArtistLevelComponent`, () => {
         <ArtistLevel
           question={question}
           onAnswer={handleAnswerChangeMock}
+          renderPlayer={() => {}}
         />
     );
     const artistInput = genreLevel.find(`input.artist__input`);
@@ -61,6 +64,7 @@ describe(`ArtistLevelComponent`, () => {
         <ArtistLevel
           question={question}
           onAnswer={handleAnswerChangeMock}
+          renderPlayer={() => {}}
         />
     );
     const artistInput = genreLevel.find(`input.artist__input`);
@@ -74,6 +78,7 @@ describe(`ArtistLevelComponent`, () => {
         <ArtistLevel
           question={question}
           onAnswer={handleAnswerChangeMock}
+          renderPlayer={() => {}}
         />
     );
     const artistInput = genreLevel.find(`input.artist__input`);
