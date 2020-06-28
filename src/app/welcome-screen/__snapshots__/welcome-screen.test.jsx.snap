@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should render with errorLimit equals 4 1`] = `
+exports[`WelcomeScreen should render with errorLimit equals 5 1`] = `
 <section
   className="welcome"
 >
@@ -14,16 +14,23 @@ exports[`App should render with errorLimit equals 4 1`] = `
       width="186"
     />
   </div>
-  <button
+  <a
     className="welcome__button"
+    href="/game"
     onClick={[Function]}
   >
-    <span
-      className="visually-hidden"
+    <button
+      className="play-button play-button--big "
+      onClick={[Function]}
+      type="button"
     >
-      Начать игру
-    </span>
-  </button>
+      <span
+        className="visually-hidden"
+      >
+        Начать игру
+      </span>
+    </button>
+  </a>
   <h2
     className="welcome__rules-title"
   >
@@ -42,7 +49,7 @@ exports[`App should render with errorLimit equals 4 1`] = `
     </li>
     <li>
       Можно допустить 
-      4
+      5
        ошибки.
     </li>
   </ul>

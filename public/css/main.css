@@ -504,7 +504,15 @@ img {
 .welcome__button {
   position: absolute;
   left: 350px;
-  top: 420px;
+  top: 420px;}
+  .welcome__button:hover {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05); }
+  .welcome__button:active {
+    -webkit-transform: scale(1.04);
+            transform: scale(1.04); }
+
+.play-button {
   padding: 0;
   width: 0;
   height: 0;
@@ -512,12 +520,14 @@ img {
   border-color: transparent;
   border-left-color: #ff9749;
   border-width: 70px 0 70px 100px; }
-  .welcome__button:hover {
-    -webkit-transform: scale(1.05);
-            transform: scale(1.05); }
-  .welcome__button:active {
-    -webkit-transform: scale(1.04);
-            transform: scale(1.04); }
+
+.play-button--small {
+  border-width: 27px 0 27px 40px;
+}
+
+.play-button--big {
+  border-width: 70px 0 70px 100px;
+}
 
 .welcome__rules-title {
   margin: 0;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerComponent should render component 1`] = `
+<div
+  className="track__status"
+>
+  <audio />
+</div>
+`;

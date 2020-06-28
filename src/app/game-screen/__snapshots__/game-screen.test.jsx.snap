@@ -1,0 +1,332 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameScreen should render component 1`] = `
+<section
+  className="game game--artist"
+>
+  <header
+    className="game__header"
+  >
+    <a
+      className="game__back"
+      href="/"
+      onClick={[Function]}
+    >
+      <span
+        className="visually-hidden"
+      >
+        Сыграть ещё раз
+      </span>
+      <img
+        alt="Угадай мелодию"
+        className="game__logo"
+        src="img/melody-logo-ginger.png"
+      />
+    </a>
+    <svg
+      className="timer"
+      viewBox="0 0 780 780"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        className="timer__line"
+        cx="390"
+        cy="390"
+        r="370"
+      />
+    </svg>
+    <div
+      className="game__mistakes"
+    />
+  </header>
+  <section
+    className="game__screen"
+  >
+    <h2
+      className="game__title"
+    >
+      Кто исполняет эту песню?
+    </h2>
+    <div
+      className="game__track"
+    >
+      <div
+        className="track"
+      >
+        <button
+          className="track__button track__button--play"
+          type="button"
+        />
+        <div
+          className="track__status"
+        >
+          <audio />
+        </div>
+      </div>
+    </div>
+    <form
+      className="game__artist"
+    >
+      <div
+        className="artist"
+      >
+        <input
+          className="artist__input visually-hidden"
+          id="John Snow"
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="John Snow"
+        />
+        <label
+          className="artist__name"
+          htmlFor="John Snow"
+        >
+          <img
+            alt="John Snow"
+            className="artist__picture"
+            src="picture/1"
+          />
+          John Snow
+        </label>
+      </div>
+      <div
+        className="artist"
+      >
+        <input
+          className="artist__input visually-hidden"
+          id="Jack Daniels"
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="Jack Daniels"
+        />
+        <label
+          className="artist__name"
+          htmlFor="Jack Daniels"
+        >
+          <img
+            alt="Jack Daniels"
+            className="artist__picture"
+            src="picture/2"
+          />
+          Jack Daniels
+        </label>
+      </div>
+      <div
+        className="artist"
+      >
+        <input
+          className="artist__input visually-hidden"
+          id="Jim Beam"
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="Jim Beam"
+        />
+        <label
+          className="artist__name"
+          htmlFor="Jim Beam"
+        >
+          <img
+            alt="Jim Beam"
+            className="artist__picture"
+            src="picture/3"
+          />
+          Jim Beam
+        </label>
+      </div>
+    </form>
+  </section>
+</section>
+`;
+
+exports[`GameScreen should render component 2`] = `
+<section
+  className="game game--genre"
+>
+  <header
+    className="game__header"
+  >
+    <a
+      className="game__back"
+      href="/"
+      onClick={[Function]}
+    >
+      <span
+        className="visually-hidden"
+      >
+        Сыграть ещё раз
+      </span>
+      <img
+        alt="Угадай мелодию"
+        className="game__logo"
+        src="img/melody-logo-ginger.png"
+      />
+    </a>
+    <svg
+      className="timer"
+      viewBox="0 0 780 780"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        className="timer__line"
+        cx="390"
+        cy="390"
+        r="370"
+      />
+    </svg>
+    <div
+      className="game__mistakes"
+    />
+  </header>
+  <section
+    className="game__screen"
+  >
+    <h2
+      className="game__title"
+    >
+      Выберите инди-рок треки
+    </h2>
+    <form
+      className="game__tracks"
+      onSubmit={[Function]}
+    >
+      <div
+        className="track"
+      >
+        <button
+          className="play-button play-button--small "
+          onClick={[Function]}
+          type="button"
+        />
+        <div
+          className="track__status"
+        >
+          <audio />
+        </div>
+        <div
+          className="game__answer"
+        >
+          <input
+            className="game__input visually-hidden"
+            id="src/1"
+            name="answer"
+            onChange={[Function]}
+            type="checkbox"
+            value="rock"
+          />
+          <label
+            className="game__check"
+            htmlFor="src/1"
+          >
+            Отметить
+          </label>
+        </div>
+      </div>
+      <div
+        className="track"
+      >
+        <button
+          className="play-button play-button--small "
+          onClick={[Function]}
+          type="button"
+        />
+        <div
+          className="track__status"
+        >
+          <audio />
+        </div>
+        <div
+          className="game__answer"
+        >
+          <input
+            className="game__input visually-hidden"
+            id="src/2"
+            name="answer"
+            onChange={[Function]}
+            type="checkbox"
+            value="blues"
+          />
+          <label
+            className="game__check"
+            htmlFor="src/2"
+          >
+            Отметить
+          </label>
+        </div>
+      </div>
+      <div
+        className="track"
+      >
+        <button
+          className="play-button play-button--small "
+          onClick={[Function]}
+          type="button"
+        />
+        <div
+          className="track__status"
+        >
+          <audio />
+        </div>
+        <div
+          className="game__answer"
+        >
+          <input
+            className="game__input visually-hidden"
+            id="src/3"
+            name="answer"
+            onChange={[Function]}
+            type="checkbox"
+            value="jazz"
+          />
+          <label
+            className="game__check"
+            htmlFor="src/3"
+          >
+            Отметить
+          </label>
+        </div>
+      </div>
+      <div
+        className="track"
+      >
+        <button
+          className="play-button play-button--small "
+          onClick={[Function]}
+          type="button"
+        />
+        <div
+          className="track__status"
+        >
+          <audio />
+        </div>
+        <div
+          className="game__answer"
+        >
+          <input
+            className="game__input visually-hidden"
+            id="src/4"
+            name="answer"
+            onChange={[Function]}
+            type="checkbox"
+            value="rock"
+          />
+          <label
+            className="game__check"
+            htmlFor="src/4"
+          >
+            Отметить
+          </label>
+        </div>
+      </div>
+      <button
+        className="game__submit button"
+        type="submit"
+      >
+        Ответить
+      </button>
+    </form>
+  </section>
+</section>
+`;

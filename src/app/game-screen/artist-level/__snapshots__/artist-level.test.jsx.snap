@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtistLevel should render component 1`] = `
+<section
+  className="game__screen"
+>
+  <h2
+    className="game__title"
+  >
+    Кто исполняет эту песню?
+  </h2>
+  <div
+    className="game__track"
+  >
+    <div
+      className="track"
+    >
+      <button
+        className="track__button track__button--play"
+        type="button"
+      />
+      <div
+        className="track__status"
+      >
+        <audio />
+      </div>
+    </div>
+  </div>
+  <form
+    className="game__artist"
+  >
+    <div
+      className="artist"
+    >
+      <input
+        className="artist__input visually-hidden"
+        id="John Snow"
+        name="answer"
+        onChange={[Function]}
+        type="radio"
+        value="John Snow"
+      />
+      <label
+        className="artist__name"
+        htmlFor="John Snow"
+      >
+        <img
+          alt="John Snow"
+          className="artist__picture"
+          src="picture/1"
+        />
+        John Snow
+      </label>
+    </div>
+    <div
+      className="artist"
+    >
+      <input
+        className="artist__input visually-hidden"
+        id="Jack Daniels"
+        name="answer"
+        onChange={[Function]}
+        type="radio"
+        value="Jack Daniels"
+      />
+      <label
+        className="artist__name"
+        htmlFor="Jack Daniels"
+      >
+        <img
+          alt="Jack Daniels"
+          className="artist__picture"
+          src="picture/2"
+        />
+        Jack Daniels
+      </label>
+    </div>
+    <div
+      className="artist"
+    >
+      <input
+        className="artist__input visually-hidden"
+        id="Jim Beam"
+        name="answer"
+        onChange={[Function]}
+        type="radio"
+        value="Jim Beam"
+      />
+      <label
+        className="artist__name"
+        htmlFor="Jim Beam"
+      >
+        <img
+          alt="Jim Beam"
+          className="artist__picture"
+          src="picture/3"
+        />
+        Jim Beam
+      </label>
+    </div>
+  </form>
+</section>
+`;

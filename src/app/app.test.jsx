@@ -9,7 +9,13 @@ describe(`App`, () => {
 
   it(`should render with errorLimit equals ${errorLimit}`, () => {
     const tree = renderer
-      .create(<App errorLimit={errorLimit} />)
+      .create(
+          <App
+            errorLimit={errorLimit}
+            questions={[]}
+            screen="welcome"
+          />
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

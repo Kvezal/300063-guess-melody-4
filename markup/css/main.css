@@ -679,7 +679,12 @@ img {
   height: 100%;
   fill: transparent;
   stroke: #ff9749;
-  stroke-width: 15px; }
+  stroke-width: 15px;
+
+  filter: url(#blur);
+  transform: rotate(-90deg) scaleY(-1);
+  transform-origin: center;
+}
 
 .timer__value {
   width: 260px;

@@ -1,4 +1,5 @@
 import React from "react";
+import {MemoryRouter} from "react-router-dom";
 import renderer from "react-test-renderer";
 
 import WelcomeScreen from "./welcome-screen";
@@ -10,10 +11,12 @@ describe(`WelcomeScreen`, () => {
   it(`should render with errorLimit equals ${errorLimit}`, () => {
     const tree = renderer
       .create(
-          <WelcomeScreen
-            errorLimit={errorLimit}
-            onWelcomeButtonClick={() => {}}
-          />
+          <MemoryRouter>
+            <WelcomeScreen
+              errorLimit={errorLimit}
+              onWelcomeButtonClick={() => {}}
+            />
+          </MemoryRouter>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
