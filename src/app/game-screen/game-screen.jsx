@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
 import Types from "@types";
-import Enums from "@enums";
+import {GameScreenTypes, GameLevels} from "@enums";
 import MistakeList from "@components/mistake-list";
 import GenreLevel from "@app/game-screen/genre-level";
 import ArtistLevel from "@app/game-screen/artist-level";
@@ -19,7 +19,7 @@ class GameScreen extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      screen: `game`,
+      screen: GameScreenTypes.GAME,
       level: 0,
       mistakes: 0,
       answers: 0,
@@ -30,16 +30,16 @@ class GameScreen extends PureComponent {
     this._chooseSuccessResultScreen = this._chooseSuccessResultScreen.bind(this);
     this._chooseFailedResultScreen = this._chooseFailedResultScreen.bind(this);
     this._screenMap = new Map([
-      [`success`, () => this._chooseSuccessResultScreen()],
-      [`failed`, () => this._chooseFailedResultScreen()],
-      [`game`, this._chooseGameScreen],
+      [GameScreenTypes.SUCCESS, () => this._chooseSuccessResultScreen()],
+      [GameScreenTypes.FAILED, () => this._chooseFailedResultScreen()],
+      [GameScreenTypes.GAME, this._chooseGameScreen],
     ]);
 
     this._chooseArtistLevel = this._chooseArtistLevel.bind(this);
     this._chooseGenreLevel = this._chooseGenreLevel.bind(this);
     this._levelMap = new Map([
-      [Enums.GameLevels.ARTIST, this._chooseArtistLevel],
-      [Enums.GameLevels.GENRE, this._chooseGenreLevel]
+      [GameLevels.ARTIST, this._chooseArtistLevel],
+      [GameLevels.GENRE, this._chooseGenreLevel]
     ]);
   }
 
@@ -103,10 +103,10 @@ class GameScreen extends PureComponent {
       ++answers;
     }
     if (mistakes >= errorLimit) {
-      screen = `failed`;
+      screen = GameScreenTypes.FAILED;
     }
     if (level >= questions.length) {
-      screen = `success`;
+      screen = GameScreenTypes.SUCCESS;
     }
     this.setState({
       screen,

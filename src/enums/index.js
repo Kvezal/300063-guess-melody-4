@@ -1,8 +1,8 @@
-import ScreenTypes from "./screen-types.enum";
+import GameScreenTypes from "./game-screen-types.enum";
 import GameLevels from "./game-levels.enum";
 
 
-export default {
-  ScreenTypes,
+export {
+  GameScreenTypes,
   GameLevels,
 };
