@@ -5,19 +5,12 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import WelcomeScreen from "@app/welcome-screen";
 import GameScreen from "@app/game-screen";
 import Types from "@types";
-import Enums from "@enums";
 
 
 class App extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      screen: Enums.ScreenTypes.WELCOME,
-    };
-    this._initScreen();
-  }
 
-  _initScreen() {
     this._chooseWelcomeScreen = this._chooseWelcomeScreen.bind(this);
     this._chooseGameScreen = this._chooseGameScreen.bind(this);
   }
@@ -48,11 +41,6 @@ class App extends PureComponent {
 App.propTypes = {
   errorLimit: PropTypes.number.isRequired,
   questions: PropTypes.arrayOf(Types.question),
-  screen: PropTypes.oneOf([
-    Enums.ScreenTypes.LOGIN,
-    Enums.ScreenTypes.WELCOME,
-    Enums.ScreenTypes.GAME
-  ]).isRequired,
 };
 
 export default App;

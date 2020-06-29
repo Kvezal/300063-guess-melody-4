@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
 import Types from "@types";
-import Enums from "@enums/index";
+import Enums from "@enums";
 import MistakeList from "@components/mistake-list";
 import GenreLevel from "@app/game-screen/genre-level";
 import ArtistLevel from "@app/game-screen/artist-level";
-import Result from "@app/game-screen/result";
+import FailedResult from "@app/game-screen/failed-result";
+import SuccessResult from "@app/game-screen/success-result";
 import withActivePlayer from "@hocs/with-active-player";
 
 const GenreLevelWrapper = withActivePlayer(GenreLevel);
@@ -25,11 +26,13 @@ class GameScreen extends PureComponent {
     };
     this._handleAnswerClick = this._handleAnswerClick.bind(this);
 
-    this._chooseGameLevel = this._chooseGameLevel.bind(this);
+    this._chooseGameScreen = this._chooseGameScreen.bind(this);
+    this._chooseSuccessResultScreen = this._chooseSuccessResultScreen.bind(this);
+    this._chooseFailedResultScreen = this._chooseFailedResultScreen.bind(this);
     this._screenMap = new Map([
-      [`success`, () => this._chooseResultScreen(`success`)],
-      [`failed`, () => this._chooseResultScreen(`failed`)],
-      [`game`, this._chooseGameLevel],
+      [`success`, () => this._chooseSuccessResultScreen()],
+      [`failed`, () => this._chooseFailedResultScreen()],
+      [`game`, this._chooseGameScreen],
     ]);
 
     this._chooseArtistLevel = this._chooseArtistLevel.bind(this);
@@ -45,16 +48,19 @@ class GameScreen extends PureComponent {
     return this._screenMap.get(screen)();
   }
 
-  _chooseResultScreen(type) {
+  _chooseSuccessResultScreen() {
     const {answers, mistakes} = this.state;
-    return <Result
-      type={type}
+    return <SuccessResult
       rightAnswers={answers}
       mistakes={mistakes}
     />;
   }
 
-  _chooseGameLevel() {
+  _chooseFailedResultScreen() {
+    return <FailedResult/>;
+  }
+
+  _chooseGameScreen() {
     const {questions} = this.props;
     const {level, mistakes} = this.state;
     const question = questions[level];
