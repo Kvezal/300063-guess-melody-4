@@ -37,6 +37,7 @@ module.exports = {
       '@types': path.resolve(__dirname, `src/types`),
       '@enums': path.resolve(__dirname, `src/enums`),
       '@hocs': path.resolve(__dirname, `src/hocs`),
+      '@utils': path.resolve(__dirname, `src/utils`),
     },
     extensions: [`.js`, `.jsx`],
   },
