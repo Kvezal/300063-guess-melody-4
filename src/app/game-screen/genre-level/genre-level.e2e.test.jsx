@@ -102,7 +102,7 @@ describe(`GenreLevelComponent`, () => {
     checkboxes.at(3).simulate(`change`, {target: {checked: true}});
     const submitButton = genreLevel.find(`form.game__tracks`);
     submitButton.simulate(`submit`, {preventDefault: preventDefaultMock});
-    expect(handleAnswerSubmitMock).toHaveBeenCalledWith(true);
+    expect(handleAnswerSubmitMock).toHaveBeenCalledWith([true, false, false, true]);
   });
 
   test(`onAnswer should return false result if answer is wrong`, () => {
@@ -119,6 +119,6 @@ describe(`GenreLevelComponent`, () => {
     checkboxes.at(1).simulate(`change`, {target: {checked: true}});
     const submitButton = genreLevel.find(`form.game__tracks`);
     submitButton.simulate(`submit`, {preventDefault: preventDefaultMock});
-    expect(handleAnswerSubmitMock).toHaveBeenCalledWith(false);
+    expect(handleAnswerSubmitMock).toHaveBeenCalledWith([false, true, false, false]);
   });
 });

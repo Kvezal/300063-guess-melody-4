@@ -1,10 +1,10 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {connect} from "react-redux";
 
 import WelcomeScreen from "@app/welcome-screen";
 import GameScreen from "@app/game-screen";
-import Types from "@types";
 
 
 class App extends PureComponent {
@@ -30,17 +30,17 @@ class App extends PureComponent {
   }
 
   _chooseGameScreen() {
-    const {questions, errorLimit} = this.props;
-    return <GameScreen
-      errorLimit={errorLimit}
-      questions={questions}
-    />;
+    return <GameScreen/>;
   }
 }
 
 App.propTypes = {
   errorLimit: PropTypes.number.isRequired,
-  questions: PropTypes.arrayOf(Types.question),
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  errorLimit: state.errorLimit,
+});
+
+export {App};
+export default connect(mapStateToProps, null)(App);

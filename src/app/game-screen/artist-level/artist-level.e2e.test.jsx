@@ -59,6 +59,7 @@ describe(`ArtistLevelComponent`, () => {
   });
 
   test(`onAnswer should return true result if answer is corrected`, () => {
+    const value = `John Snow`;
     const handleAnswerChangeMock = jest.fn();
     const genreLevel = shallow(
         <ArtistLevel
@@ -68,11 +69,12 @@ describe(`ArtistLevelComponent`, () => {
         />
     );
     const artistInput = genreLevel.find(`input.artist__input`);
-    artistInput.at(2).simulate(`change`, {target: {value: `Jim Beam`}});
-    expect(handleAnswerChangeMock).toHaveBeenCalledWith(true);
+    artistInput.at(2).simulate(`change`, {target: {value}});
+    expect(handleAnswerChangeMock).toHaveBeenCalledWith(value);
   });
 
   test(`onAnswer should return false result if answer is wrong`, () => {
+    const value = `John Snow`;
     const handleAnswerChangeMock = jest.fn();
     const genreLevel = shallow(
         <ArtistLevel
@@ -82,7 +84,7 @@ describe(`ArtistLevelComponent`, () => {
         />
     );
     const artistInput = genreLevel.find(`input.artist__input`);
-    artistInput.at(0).simulate(`change`, {target: {value: `John Snow`}});
-    expect(handleAnswerChangeMock).toHaveBeenCalledWith(false);
+    artistInput.at(0).simulate(`change`, {target: {value}});
+    expect(handleAnswerChangeMock).toHaveBeenCalledWith(value);
   });
 });

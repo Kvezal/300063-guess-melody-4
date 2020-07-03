@@ -7,7 +7,6 @@ import Types from "@types";
 class GenreLevel extends PureComponent {
   constructor(props) {
     super(props);
-    this._handleAnswerSubmit = this._handleAnswerSubmit.bind(this);
     this._handleAnswerChange = this._handleAnswerChange.bind(this);
     const {question} = props;
     this.state = {
@@ -15,10 +14,10 @@ class GenreLevel extends PureComponent {
     };
   }
   render() {
-    const {question, renderPlayer} = this.props;
+    const {question, renderPlayer, onAnswer} = this.props;
     return <section className="game__screen">
       <h2 className="game__title">Выберите инди-рок треки</h2>
-      <form className="game__tracks" onSubmit={this._handleAnswerSubmit}>
+      <form className="game__tracks" onSubmit={() => onAnswer(this.state.answers)}>
         {question.answers.map((answer, index) => {
           return <div className="track" key={index}>
             {renderPlayer(answer.src, index)}
@@ -38,22 +37,6 @@ class GenreLevel extends PureComponent {
         <button className="game__submit button" type="submit">Ответить</button>
       </form>
     </section>;
-  }
-
-  _handleAnswerSubmit(event) {
-    event.preventDefault();
-    const {onAnswer, question} = this.props;
-    const {answers: currentAnswers} = this.state;
-    const answerResult = question.answers.reduce((result, answer, index) => {
-      if (!result) {
-        return result;
-      }
-      if (answer.genre === question.genre) {
-        return currentAnswers[index];
-      }
-      return !currentAnswers[index];
-    }, true);
-    onAnswer(answerResult);
   }
 
   _handleAnswerChange(event, checkboxIndex) {

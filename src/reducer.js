@@ -8,7 +8,7 @@ const initialState = {
   errorLimit: 3,
   level: 0,
   questions,
-  screen: null,
+  screen: GameScreenTypes.GAME,
 };
 
 const ActionType = {
@@ -52,7 +52,6 @@ const ActionCreator = {
         isCorrectAnswer = checkGenreAnswer(question, userAnswer);
         break;
     }
-
     return {
       type: ActionType.INCREMENT_MISTAKE,
       payload: isCorrectAnswer ? 0 : 1,
@@ -81,7 +80,7 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         level: state.level + action.payload,
       });
-    case ActionType.INCREASE_MISTAKES:
+    case ActionType.INCREMENT_MISTAKE:
       return extend(state, {
         mistakes: state.mistakes + action.payload,
       });

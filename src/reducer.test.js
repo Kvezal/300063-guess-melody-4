@@ -110,7 +110,7 @@ describe(`Reducer`, () => {
       mistakes: 0,
     };
     const action = {
-      type: ActionType.INCREASE_MISTAKES,
+      type: ActionType.INCREMENT_MISTAKE,
       payload: 1,
     };
     expect(reducer(state, action)).toEqual({
@@ -123,7 +123,7 @@ describe(`Reducer`, () => {
       mistakes: 0,
     };
     const action = {
-      type: ActionType.INCREASE_MISTAKES,
+      type: ActionType.INCREMENT_MISTAKE,
       payload: 2,
     };
     expect(reducer(state, action)).toEqual({
@@ -136,7 +136,7 @@ describe(`Reducer`, () => {
       mistakes: 1,
     };
     const action = {
-      type: ActionType.INCREASE_MISTAKES,
+      type: ActionType.INCREMENT_MISTAKE,
       payload: 1,
     };
     expect(reducer(state, action)).toEqual({

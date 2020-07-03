@@ -13,13 +13,13 @@ Enzyme.configure({
 describe(`FailedResultComponent`, () => {
   test(`should render failed component`, () => {
     const tree = render
-      .create(<FailedResult/>)
+      .create(<FailedResult onResetLinkClick={() => {}}/>)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test(`should have a failed title`, () => {
-    const resultComponent = shallow(<FailedResult/>);
+    const resultComponent = shallow(<FailedResult onResetLinkClick={() => {}}/>);
     const result = resultComponent.find(`p.result__total--fail`);
     expect(result).toHaveLength(1);
   });

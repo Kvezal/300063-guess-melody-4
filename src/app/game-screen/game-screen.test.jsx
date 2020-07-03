@@ -2,7 +2,7 @@ import React from "react";
 import render from "react-test-renderer";
 import {MemoryRouter} from "react-router-dom";
 
-import GameScreen from "./game-screen";
+import {GameScreen} from "./game-screen";
 
 
 describe(`GameScreen`, () => {
@@ -21,7 +21,11 @@ describe(`GameScreen`, () => {
           <MemoryRouter>
             <GameScreen
               questions={questions}
-              errorLimit={3}
+              level={0}
+              mistakes={0}
+              screen="game"
+              onUserAnswer={() => {}}
+              onResetGame={() => {}}
             />
           </MemoryRouter>, {
             createNodeMock: () => ({}),
@@ -47,7 +51,11 @@ describe(`GameScreen`, () => {
           <MemoryRouter>
             <GameScreen
               questions={questions}
-              errorLimit={3}
+              level={0}
+              mistakes={0}
+              screen="game"
+              onUserAnswer={() => {}}
+              onResetGame={() => {}}
             />
           </MemoryRouter>, {
             createNodeMock: () => ({}),

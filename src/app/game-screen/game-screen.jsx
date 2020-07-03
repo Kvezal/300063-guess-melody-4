@@ -1,6 +1,7 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
 import Types from "@types";
 import {GameScreenTypes, GameLevels} from "@enums";
@@ -11,6 +12,8 @@ import FailedResult from "@app/game-screen/failed-result";
 import SuccessResult from "@app/game-screen/success-result";
 import withActivePlayer from "@hocs/with-active-player";
 
+import {ActionCreator} from "../../reducer";
+
 const GenreLevelWrapper = withActivePlayer(GenreLevel);
 const ArtistLevelWrapper = withActivePlayer(ArtistLevel);
 
@@ -18,13 +21,6 @@ const ArtistLevelWrapper = withActivePlayer(ArtistLevel);
 class GameScreen extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      screen: GameScreenTypes.GAME,
-      level: 0,
-      mistakes: 0,
-      answers: 0,
-    };
-    this._handleAnswerClick = this._handleAnswerClick.bind(this);
 
     this._chooseGameScreen = this._chooseGameScreen.bind(this);
     this._chooseSuccessResultScreen = this._chooseSuccessResultScreen.bind(this);
@@ -44,25 +40,26 @@ class GameScreen extends PureComponent {
   }
 
   render() {
-    const {screen} = this.state;
+    const {screen} = this.props;
     return this._screenMap.get(screen)();
   }
 
   _chooseSuccessResultScreen() {
-    const {answers, mistakes} = this.state;
+    const {level, mistakes, onResetGame} = this.props;
     return <SuccessResult
-      rightAnswers={answers}
+      rightAnswers={level - mistakes}
       mistakes={mistakes}
+      onResetLinkClick={onResetGame}
     />;
   }
 
   _chooseFailedResultScreen() {
-    return <FailedResult/>;
+    const {onResetGame} = this.props;
+    return <FailedResult onResetLinkClick={onResetGame}/>;
   }
 
   _chooseGameScreen() {
-    const {questions} = this.props;
-    const {level, mistakes} = this.state;
+    const {questions, level, mistakes} = this.props;
     const question = questions[level];
     return <section className={`game game--${question.type}`}>
       <header className="game__header">
@@ -80,52 +77,50 @@ class GameScreen extends PureComponent {
   }
 
   _chooseArtistLevel(question) {
+    const {onUserAnswer} = this.props;
     return <ArtistLevelWrapper
       question={question}
-      onAnswer={this._handleAnswerClick}
+      onAnswer={(answer) => onUserAnswer(question, answer)}
     />;
   }
 
   _chooseGenreLevel(question) {
+    const {onUserAnswer} = this.props;
     return <GenreLevelWrapper
       question={question}
-      onAnswer={this._handleAnswerClick}
+      onAnswer={(answers) => onUserAnswer(question, answers)}
     />;
-  }
-
-  _handleAnswerClick(isRightAnswer) {
-    let {level, answers, mistakes, screen} = this.state;
-    const {errorLimit, questions} = this.props;
-    ++level;
-    if (!isRightAnswer) {
-      ++mistakes;
-    } else {
-      ++answers;
-    }
-    if (mistakes >= errorLimit) {
-      screen = GameScreenTypes.FAILED;
-    }
-    if (level >= questions.length) {
-      screen = GameScreenTypes.SUCCESS;
-    }
-    this.setState({
-      screen,
-      level,
-      answers,
-      mistakes,
-    });
   }
 }
 
-GameScreen.defaultProps = {
-  errorLimit: 3,
-  time: 300,
-};
-
 GameScreen.propTypes = {
-  errorLimit: PropTypes.number.isRequired,
   questions: PropTypes.arrayOf(Types.question).isRequired,
-  time: PropTypes.number.isRequired,
+  level: PropTypes.number.isRequired,
+  mistakes: PropTypes.number.isRequired,
+  screen: PropTypes.string.isRequired,
+  onUserAnswer: PropTypes.func.isRequired,
+  onResetGame: PropTypes.func.isRequired,
 };
 
-export default GameScreen;
+const mapStateToProps = (state) => ({
+  questions: state.questions,
+  level: state.level,
+  mistakes: state.mistakes,
+  screen: state.screen,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onUserAnswer(question, answer) {
+    dispatch(ActionCreator.incrementLevel());
+    dispatch(ActionCreator.incrementMistake(question, answer));
+    dispatch(ActionCreator.chooseScreen());
+  },
+
+  onResetGame() {
+    dispatch(ActionCreator.resetGame());
+    dispatch(ActionCreator.chooseScreen());
+  }
+});
+
+export {GameScreen};
+export default connect(mapStateToProps, mapDispatchToProps)(GameScreen);

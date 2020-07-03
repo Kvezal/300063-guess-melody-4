@@ -2,7 +2,7 @@ import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
-import GameScreen from "./game-screen";
+import {GameScreen} from "./game-screen";
 
 
 const questions = [
@@ -36,6 +36,11 @@ describe(`GameScreenComponent`, () => {
     const tree = shallow(
         <GameScreen
           questions={genreQuestions}
+          level={0}
+          mistakes={0}
+          screen="game"
+          onUserAnswer={() => {}}
+          onResetGame={() => {}}
         />
     );
     const artistLevel = tree.find(`section.game--genre`);
@@ -47,7 +52,11 @@ describe(`GameScreenComponent`, () => {
     const tree = shallow(
         <GameScreen
           questions={artistQuestions}
-          level={1}
+          level={0}
+          mistakes={0}
+          screen="game"
+          onUserAnswer={() => {}}
+          onResetGame={() => {}}
         />
     );
     const artistLevel = tree.find(`section.game--artist`);

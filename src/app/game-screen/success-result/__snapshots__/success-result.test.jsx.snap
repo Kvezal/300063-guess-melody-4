@@ -30,6 +30,7 @@ exports[`SuccessResultComponent should render success component 1`] = `
   </p>
   <button
     className="replay"
+    onClick={[Function]}
     type="button"
   >
     Сыграть ещё раз

@@ -18,6 +18,7 @@ describe(`SuccessResultComponent`, () => {
           <SuccessResult
             rightAnswers={10}
             mistakes={0}
+            onResetLinkClick={() => {}}
           />
       )
       .toJSON();
@@ -29,6 +30,7 @@ describe(`SuccessResultComponent`, () => {
         <SuccessResult
           rightAnswers={0}
           mistakes={0}
+          onResetLinkClick={() => {}}
         />
     );
     const failedResult = resultComponent.find(`p.result__total--fail`);
@@ -43,6 +45,7 @@ describe(`SuccessResultComponent`, () => {
         <SuccessResult
           rightAnswers={rightAnswers}
           mistakes={0}
+          onResetLinkClick={() => {}}
         />
     );
     const result = resultComponent.find(`p.result__total`);
@@ -55,6 +58,7 @@ describe(`SuccessResultComponent`, () => {
         <SuccessResult
           rightAnswers={8}
           mistakes={mistakes}
+          onResetLinkClick={() => {}}
         />
     );
     const result = resultComponent.find(`p.result__total`);
