@@ -12,24 +12,21 @@ const initialState = {
 };
 
 const ActionType = {
-  INCREASE_MISTAKES: `INCREASE_MISTAKES`,
+  INCREMENT_MISTAKE: `INCREMENT_MISTAKE`,
   INCREMENT_LEVEL: `INCREMENT_LEVEL`,
   RESET_GAME: `RESET_GAME`,
   CHOOSE_SCREEN: `CHOOSE_SCREEN`,
 };
 
-const getArtistAnswerMistakes = (question, userAnswer) => {
+const checkArtistAnswer = (question, userAnswer) => {
   return question.song.artist === userAnswer;
 };
 
-const getGenreAnswerMistakes = (question, userAnswers) => {
-  return userAnswers.reduce((mistakes, userAnswer, index) => {
+const checkGenreAnswer = (question, userAnswers) => {
+  return userAnswers.every((userAnswer, index) => {
     const isRightGenre = question.answers[index].genre === question.genre;
-    if (userAnswer !== isRightGenre) {
-      mistakes++;
-    }
-    return mistakes;
-  }, 0);
+    return userAnswer === isRightGenre;
+  });
 };
 
 const getCurrentGameScreen = (state) => {
@@ -43,23 +40,22 @@ const getCurrentGameScreen = (state) => {
   return screen;
 };
 
-const gameAnswerMistakesCounterMap = new Map([
-  [GameLevels.ARTIST, getArtistAnswerMistakes],
-  [GameLevels.GENRE, getGenreAnswerMistakes]
-]);
-
 const ActionCreator = {
-  increaseMistakes: (question, userAnswer) => {
-    let mistakes = 0;
+  incrementMistake: (question, userAnswer) => {
+    let isCorrectAnswer = false;
 
-    const checkAnswer = gameAnswerMistakesCounterMap.get(question.type);
-    if (checkAnswer) {
-      mistakes = checkAnswer(question, userAnswer);
+    switch (question.type) {
+      case GameLevels.ARTIST:
+        isCorrectAnswer = checkArtistAnswer(question, userAnswer);
+        break;
+      case GameLevels.GENRE:
+        isCorrectAnswer = checkGenreAnswer(question, userAnswer);
+        break;
     }
 
     return {
-      type: ActionType.INCREASE_MISTAKES,
-      payload: mistakes,
+      type: ActionType.INCREMENT_MISTAKE,
+      payload: isCorrectAnswer ? 0 : 1,
     };
   },
 

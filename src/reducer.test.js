@@ -40,26 +40,18 @@ describe(`Reducer`, () => {
     },
   ];
 
-  test(`increase mistakes action should increase 1 mistakes`, () => {
-    expect(ActionCreator.increaseMistakes(questions[0], [false, false, false, true]))
+  test(`increment mistake action should increment mistake`, () => {
+    expect(ActionCreator.incrementMistake(questions[0], [false, false, false, true]))
       .toEqual({
-        type: ActionType.INCREASE_MISTAKES,
+        type: ActionType.INCREMENT_MISTAKE,
         payload: 1,
       });
   });
 
-  test(`increase mistakes action should increase 2 mistakes`, () => {
-    expect(ActionCreator.increaseMistakes(questions[0], [false, false, false, false]))
+  test(`increment mistake action shouldn't increment mistake`, () => {
+    expect(ActionCreator.incrementMistake(questions[0], [true, false, false, true]))
       .toEqual({
-        type: ActionType.INCREASE_MISTAKES,
-        payload: 2,
-      });
-  });
-
-  test(`increase mistakes action shouldn't increase mistakes`, () => {
-    expect(ActionCreator.increaseMistakes(questions[0], [true, false, false, true]))
-      .toEqual({
-        type: ActionType.INCREASE_MISTAKES,
+        type: ActionType.INCREMENT_MISTAKE,
         payload: 0,
       });
   });
