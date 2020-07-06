@@ -24,6 +24,8 @@ describe(`Genre`, () => {
             <GenreLevel
               question={question}
               onAnswer={() => {}}
+              onAnswerChange={() => {}}
+              answers={question.answers.map(() => false)}
               renderPlayer={() => {}}
             />
           </MemoryRouter>

@@ -34,7 +34,7 @@ class AudioPlayer extends PureComponent {
     });
 
     audio.ontimeupdate = () => this.setState({
-      progress: audio.currentTime,
+      progress: Math.floor(audio.currentTime),
     });
   }
 

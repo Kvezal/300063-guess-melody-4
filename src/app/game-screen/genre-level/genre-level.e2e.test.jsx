@@ -26,6 +26,8 @@ describe(`GenreLevelComponent`, () => {
         <GenreLevel
           question={question}
           onAnswer={() => {}}
+          onAnswerChange={() => {}}
+          answers={question.answers.map(() => false)}
           renderPlayer={() => {}}
         />
     );
@@ -38,23 +40,13 @@ describe(`GenreLevelComponent`, () => {
         <GenreLevel
           question={question}
           onAnswer={() => {}}
+          onAnswerChange={() => {}}
+          answers={question.answers.map(() => false)}
           renderPlayer={() => {}}
         />
     );
     const tracks = genreLevel.find(`.track`);
     expect(tracks).toHaveLength(question.answers.length);
-  });
-
-  test(`all answers prop should be "false" at initialization`, () => {
-    const genreLevel = shallow(
-        <GenreLevel
-          question={question}
-          onAnswer={() => {}}
-          renderPlayer={() => {}}
-        />
-    );
-    const answers = genreLevel.state().answers;
-    expect(answers.some((answer) => answer)).toBeFalsy();
   });
 
   test(`should call answer`, () => {
@@ -63,62 +55,13 @@ describe(`GenreLevelComponent`, () => {
         <GenreLevel
           question={question}
           onAnswer={handleAnswerSubmitMock}
+          onAnswerChange={() => {}}
+          answers={question.answers.map(() => false)}
           renderPlayer={() => {}}
         />
     );
     const genreButton = genreLevel.find(`button.game__submit`);
     genreButton.simulate(`submit`);
     expect(handleAnswerSubmitMock).toBeCalled();
-  });
-
-  test(`should change answers after checkbox changed`, () => {
-    const genreLevel = shallow(
-        <GenreLevel
-          question={question}
-          onAnswer={() => {}}
-          renderPlayer={() => {}}
-        />
-    );
-    const checkButtons = genreLevel.find(`input.game__input`);
-    const beforeAnswers = genreLevel.state().answers;
-    checkButtons.forEach((button) => button.simulate(`change`, {target: {value: true}}));
-    const afterAnswers = genreLevel.state().answers;
-    const isAllAnswersChanged = beforeAnswers.every((answer, index) => answer !== afterAnswers[index]);
-    expect(isAllAnswersChanged).toBeTruthy();
-  });
-
-  test(`onAnswer should return true result if answer is corrected`, () => {
-    const handleAnswerSubmitMock = jest.fn();
-    const preventDefaultMock = jest.fn();
-    const genreLevel = shallow(
-        <GenreLevel
-          question={question}
-          onAnswer={handleAnswerSubmitMock}
-          renderPlayer={() => {}}
-        />
-    );
-    const checkboxes = genreLevel.find(`input.game__input`);
-    checkboxes.at(0).simulate(`change`, {target: {checked: true}});
-    checkboxes.at(3).simulate(`change`, {target: {checked: true}});
-    const submitButton = genreLevel.find(`form.game__tracks`);
-    submitButton.simulate(`submit`, {preventDefault: preventDefaultMock});
-    expect(handleAnswerSubmitMock).toHaveBeenCalledWith([true, false, false, true]);
-  });
-
-  test(`onAnswer should return false result if answer is wrong`, () => {
-    const handleAnswerSubmitMock = jest.fn();
-    const preventDefaultMock = jest.fn();
-    const genreLevel = shallow(
-        <GenreLevel
-          question={question}
-          onAnswer={handleAnswerSubmitMock}
-          renderPlayer={() => {}}
-        />
-    );
-    const checkboxes = genreLevel.find(`input.game__input`);
-    checkboxes.at(1).simulate(`change`, {target: {checked: true}});
-    const submitButton = genreLevel.find(`form.game__tracks`);
-    submitButton.simulate(`submit`, {preventDefault: preventDefaultMock});
-    expect(handleAnswerSubmitMock).toHaveBeenCalledWith([false, true, false, false]);
   });
 });
