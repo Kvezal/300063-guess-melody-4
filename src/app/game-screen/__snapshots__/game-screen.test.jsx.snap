@@ -55,6 +55,7 @@ exports[`GameScreen should render component 1`] = `
       >
         <button
           className="track__button track__button--pause"
+          disabled={true}
           onClick={[Function]}
           type="button"
         />
@@ -198,6 +199,7 @@ exports[`GameScreen should render component 2`] = `
       >
         <button
           className="track__button track__button--pause"
+          disabled={true}
           onClick={[Function]}
           type="button"
         />
@@ -230,6 +232,7 @@ exports[`GameScreen should render component 2`] = `
       >
         <button
           className="track__button track__button--play"
+          disabled={true}
           onClick={[Function]}
           type="button"
         />
@@ -262,6 +265,7 @@ exports[`GameScreen should render component 2`] = `
       >
         <button
           className="track__button track__button--play"
+          disabled={true}
           onClick={[Function]}
           type="button"
         />
@@ -294,6 +298,7 @@ exports[`GameScreen should render component 2`] = `
       >
         <button
           className="track__button track__button--play"
+          disabled={true}
           onClick={[Function]}
           type="button"
         />

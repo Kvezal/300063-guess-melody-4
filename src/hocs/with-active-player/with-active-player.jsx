@@ -1,14 +1,16 @@
 import React, {PureComponent} from "react";
 
 import AudioPlayer from "@components/audio-player";
+import withAudio from "@hocs/with-audio";
 
+
+const AudioPlayerWrapper = withAudio(AudioPlayer);
 
 const withActivePlayer = (Component) => {
   class WithActivePlayer extends PureComponent {
     constructor(props) {
       super(props);
 
-      this._handlePlayButtonClick = this._handlePlayButtonClick.bind(this);
       this.state = {
         activePlayerId: 0,
       };
@@ -16,25 +18,24 @@ const withActivePlayer = (Component) => {
 
     render() {
       const {activePlayerId} = this.state;
+
       return <Component
         {...this.props}
         renderPlayer={(source, id) => {
-          return <AudioPlayer
-            source={source}
-            isPlaying={activePlayerId === id}
-            onPlayButtonClick={() => this._handlePlayButtonClick(id)}
-          />;
+          return (
+            <AudioPlayerWrapper
+              source={source}
+              isPlaying={id === activePlayerId}
+              onPlayButtonClick={() => this.setState({
+                activePlayerId: activePlayerId === id ? -1 : id
+              })}
+            />
+          );
         }}
       />;
     }
-
-    _handlePlayButtonClick(audioPlayerId) {
-      const {activePlayerId} = this.state;
-      this.setState({
-        activePlayerId: audioPlayerId === activePlayerId ? -1 : audioPlayerId,
-      });
-    }
   }
+
   return WithActivePlayer;
 };
 

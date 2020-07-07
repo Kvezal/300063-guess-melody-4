@@ -29,18 +29,4 @@ describe(`withActivePlayerHOC`, () => {
     const renderPlayer = testComponent.find(`audio`);
     expect(renderPlayer).toHaveLength(1);
   });
-
-  test(`should change active player id`, () => {
-    const pauseStub = jest
-      .spyOn(window.HTMLMediaElement.prototype, `pause`)
-      .mockImplementation(() => {});
-    const testComponent = mount(<TestComponentWithHOC/>);
-
-    const beforeActivePlayer = testComponent.state().activePlayerId;
-    const renderPlayer = testComponent.find(`button`);
-    renderPlayer.simulate(`click`);
-    const afterActivePlayer = testComponent.state().activePlayerId;
-    expect(beforeActivePlayer === afterActivePlayer).toBeFalsy();
-    expect(pauseStub).toHaveBeenCalled();
-  });
 });

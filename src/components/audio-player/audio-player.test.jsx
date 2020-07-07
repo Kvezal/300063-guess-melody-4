@@ -17,6 +17,7 @@ describe(`AudioPlayerComponent`, () => {
     const tree = render
       .create(
           <AudioPlayer
+            isLoading={true}
             source={source}
             isPlaying={false}
             onPlayButtonClick={() => {}}
@@ -31,6 +32,7 @@ describe(`AudioPlayerComponent`, () => {
   test(`button state should be "play"`, () => {
     const audioComponent = mount(
         <AudioPlayer
+          isLoading={true}
           source={source}
           isPlaying={false}
           onPlayButtonClick={() => {}}
@@ -43,6 +45,7 @@ describe(`AudioPlayerComponent`, () => {
   test(`button state should be "pause"`, () => {
     const audioComponent = mount(
         <AudioPlayer
+          isLoading={true}
           source={source}
           isPlaying={true}
           onPlayButtonClick={() => {}}
