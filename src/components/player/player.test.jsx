@@ -3,25 +3,27 @@ import render from "react-test-renderer";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
-import AudioPlayer from "./audio-player";
+import Player from "./player";
 
 
 Enzyme.configure({
   adapter: new Adapter(),
 });
 
-describe(`AudioPlayerComponent`, () => {
+describe(`PlayerComponent`, () => {
   const source = `test-source`;
 
   test(`should render component`, () => {
     const tree = render
       .create(
-          <AudioPlayer
+          <Player
             isLoading={true}
             source={source}
             isPlaying={false}
             onPlayButtonClick={() => {}}
-          />, {
+          >
+            <audio/>
+          </Player>, {
             createNodeMock: () => ({}),
           }
       )
@@ -31,7 +33,7 @@ describe(`AudioPlayerComponent`, () => {
 
   test(`button state should be "play"`, () => {
     const audioComponent = mount(
-        <AudioPlayer
+        <Player
           isLoading={true}
           source={source}
           isPlaying={false}
@@ -44,7 +46,7 @@ describe(`AudioPlayerComponent`, () => {
 
   test(`button state should be "pause"`, () => {
     const audioComponent = mount(
-        <AudioPlayer
+        <Player
           isLoading={true}
           source={source}
           isPlaying={true}
