@@ -54,4 +54,36 @@ describe(`withAudioHOC`, () => {
     const audio = wrapper.find(`audio`);
     expect(audio).toHaveLength(1);
   });
+
+  test(`Check HOC's callback turn on audio "play"`, () => {
+    const TestComponentWithHOC = withAudio(TestComponent);
+    const wrapper = mount(
+        <TestComponentWithHOC
+          source=""
+          isPlaying={true}
+          onPlayButtonClick={() => {}}
+        />
+    );
+    window.HTMLMediaElement.prototype.play = () => {};
+    const {_audioRef} = wrapper.instance();
+    jest.spyOn(_audioRef.current, `play`);
+    wrapper.instance().componentDidUpdate();
+    expect(_audioRef.current.play).toHaveBeenCalled();
+  });
+
+  test(`Check HOC's callback turn off audio "pause"`, () => {
+    const TestComponentWithHOC = withAudio(TestComponent);
+    const wrapper = mount(
+        <TestComponentWithHOC
+          source=""
+          isPlaying={false}
+          onPlayButtonClick={() => {}}
+        />
+    );
+    window.HTMLMediaElement.prototype.pause = () => {};
+    const {_audioRef} = wrapper.instance();
+    jest.spyOn(_audioRef.current, `pause`);
+    wrapper.instance().componentDidUpdate();
+    expect(_audioRef.current.pause).toHaveBeenCalled();
+  });
 });
