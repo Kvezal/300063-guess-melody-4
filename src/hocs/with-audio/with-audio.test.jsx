@@ -64,9 +64,8 @@ describe(`withAudioHOC`, () => {
           onPlayButtonClick={() => {}}
         />
     );
-    window.HTMLMediaElement.prototype.play = () => {};
+    jest.spyOn(window.HTMLMediaElement.prototype, `play`).mockImplementation(() => {});
     const {_audioRef} = wrapper.instance();
-    jest.spyOn(_audioRef.current, `play`);
     wrapper.instance().componentDidUpdate();
     expect(_audioRef.current.play).toHaveBeenCalled();
   });
@@ -80,9 +79,8 @@ describe(`withAudioHOC`, () => {
           onPlayButtonClick={() => {}}
         />
     );
-    window.HTMLMediaElement.prototype.pause = () => {};
+    jest.spyOn(window.HTMLMediaElement.prototype, `pause`).mockImplementation(() => {});
     const {_audioRef} = wrapper.instance();
-    jest.spyOn(_audioRef.current, `pause`);
     wrapper.instance().componentDidUpdate();
     expect(_audioRef.current.pause).toHaveBeenCalled();
   });
