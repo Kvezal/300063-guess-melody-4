@@ -41,7 +41,7 @@ const withAudio = (Component) => {
     }
 
     componentDidUpdate() {
-      const {isPlaying} = this.state;
+      const {isPlaying} = this.props;
       const audio = this._audioRef.current;
 
       if (isPlaying) {
@@ -52,17 +52,14 @@ const withAudio = (Component) => {
     }
 
     render() {
-      const {isLoading, isPlaying} = this.state;
-      const {onPlayButtonClick} = this.props;
+      const {isLoading} = this.state;
+      const {onPlayButtonClick, isPlaying} = this.props;
 
       return <Component
         {...this.props}
         isLoading={isLoading}
         isPlaying={isPlaying}
-        onPlayButtonClick={() => {
-          this.setState({isPlaying: !isPlaying});
-          onPlayButtonClick();
-        }}
+        onPlayButtonClick={onPlayButtonClick}
       >
         <audio ref={this._audioRef}/>
       </Component>;
